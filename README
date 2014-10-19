@@ -1,4 +1,3 @@
-This is your new Play application
-=================================
+This is small and easy application on Scala, Play, Squeryl as ORM, H2 in-memory db, Twitter bootstrap as UI (not implemented yet)
 
-This file will be packaged with your application, when using `activator dist`.
+Sample test project, nothing serious - just to play around, learning Play and Scala.

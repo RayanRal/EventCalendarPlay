@@ -1,0 +1,25 @@
+@(venues: List[Venue])
+
+@main(Messages("venues.list")) {
+
+<h2>
+    @Messages("venues.list")
+</h2>
+
+<dl class="dl-horizontal">
+
+    @for(venue <- venues) {
+    <dt>
+        <a href="@controllers.routes.Venues.details(venue.id)">
+            @venue.name
+        </a>
+    </dt>
+    <dd>@venue.description</dd>
+    }
+
+    <p>
+        <i class="icon-plus"></i> @Messages("venue.new.command")
+    </p>
+
+</dl>
+}

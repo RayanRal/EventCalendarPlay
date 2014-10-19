@@ -19,7 +19,10 @@ object Event {
 
   import Database._
 
-  def findAll = inTransaction { from(events)(event => select(event)).toList }
+  def findAll(page: Int) = inTransaction {
+    val pageLength = 10
+    from(events)(event => select(event)).page(pageLength * page, pageLength).toList
+  }
 
   def findByName(name: String) = inTransaction {
     from(events)(event => where(event.name === name) select event).single
@@ -38,8 +41,8 @@ object Event {
       where(venues.id === venue.id) select venues on (events.venue === venues.id)).toList
   }
 
-  def create(name: String, description: String, startDate: Date, endDate: Date, typez: String, venueName: String) = inTransaction {
-    val eventType = EventType.withName(typez)
+  def create(name: String, description: String, startDate: Date, endDate: Date, typeString: String, venueName: String) = inTransaction {
+    val eventType = EventType.withName(typeString)
     val venue = Venue.findByName(venueName)
     events.insert(new Event(0L, startDate, endDate, venue.id, eventType, name, description))
   }

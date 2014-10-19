@@ -1,0 +1,25 @@
+@(events: List[Event])
+
+@main(Messages("events.list")) {
+
+<h2>
+    @Messages("events.list")
+</h2>
+
+<dl class="dl-horizontal">
+
+    @for(event <- events) {
+        <dt>
+            <a href="@controllers.routes.Events.details(event.id)">
+                @event.name
+            </a>
+        </dt>
+        <dd>@event.description</dd>
+    }
+
+    <p>
+        <i class="icon-plus"></i> @Messages("event.new.command")
+    </p>
+
+</dl>
+}

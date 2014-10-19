@@ -9,12 +9,11 @@ import models.Venue
 object Venues extends Controller {
 
   def list(page: Int) = Action {
-    val venues = Venue.findAll
-    Ok("Start page: Venue found: ")
+    val venues = Venue.findAll(page)
+    Ok(views.html.venueList(venues))
   }
 
   def detailsByName(name: String) = Action {
-    val venueTest = Venue.create(0, 0, "TestVenue", "Zakrevskogo, 43", "Just a test")
     val venue = Venue.findByName(name)
     Ok(views.html.venueDetails(venue))
   }

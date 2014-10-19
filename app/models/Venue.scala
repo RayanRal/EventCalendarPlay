@@ -13,9 +13,10 @@ object Venue {
 
   import Database._
 
-  def allQ = from(venues)(venues => select(venues))
-
-  def findAll = inTransaction { allQ.toList }
+  def findAll(page: Int) = inTransaction {
+    val pageLength = 10
+    from(venues)(venues => select(venues)).page(pageLength * page, pageLength).toList
+  }
 
   def findByName(name: String) = inTransaction {
     from(venues)(venues => where(venues.name === name) select venues).single

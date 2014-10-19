@@ -7,6 +7,7 @@ GET     /                           controllers.Application.index
 GET     /events                     controllers.Events.list(page: Int ?= 1)
 GET     /event/:id                  controllers.Events.details(id: Long)
 GET     /event/name/:name           controllers.Events.detailsByName(name: String)
+POST    /event/:name/:description/:venue/:eventType   controllers.Events.create(name: String, description: String, venue: String, eventType: String)
 
 GET     /venues                     controllers.Venues.list(page: Int ?= 1)
 GET     /venue/:id                  controllers.Venues.details(id: Long)

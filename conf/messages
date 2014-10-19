@@ -7,3 +7,7 @@ eventType = Event type
 venue = Venue
 startDate = Start date
 endDate = End date
+events.list = Events
+venues.list = Venues
+event.new.command = Add event
+venue.new.command = Add venue

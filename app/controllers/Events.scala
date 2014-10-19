@@ -22,7 +22,8 @@ object Events extends Controller {
   }
 
   def list(page: Int) = Action {
-    NotImplemented
+    val listEvents = Event.findAll(page)
+    Ok(views.html.eventList(listEvents))
   }
 
   def getAllOfType(typez: String) = Action {
@@ -37,8 +38,8 @@ object Events extends Controller {
     Ok("Events list found: " + listEvents(0).name + " will be held in " + venue.name)
   }
 
-  def create(name: String, description: String, venue: String, typez: String) = Action {
-    val event = Event.create(name, description, new Date(), new Date(), typez, venue)
+  def create(name: String, description: String, venue: String, typeString: String) = Action {
+    val event = Event.create(name, description, new Date(), new Date(), typeString, venue)
     Ok("Created with id " + event.id)
   }
 

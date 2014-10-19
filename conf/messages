@@ -1,0 +1,9 @@
+application.name = Some kind of planner
+name = Name
+description = Description
+event.details = Event: {0}
+venue.details = Venue: {0}
+eventType = Event type
+venue = Venue
+startDate = Start date
+endDate = End date

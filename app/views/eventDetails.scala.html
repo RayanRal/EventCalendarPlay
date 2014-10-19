@@ -1,0 +1,27 @@
+@(event: Event, venue: Venue)
+
+@main(Messages("event.details", event.name)) {
+
+    <h2>
+        @Messages("event.details", event.name)
+    </h2>
+
+    <dl class="dl-horizontal">
+        <dt>@Messages("name"):</dt>
+        <dd>@event.name</dd>
+
+        <dt>@Messages("description"):</dt>
+        <dd>@event.description</dd>
+
+        <dt>@Messages("eventType"):</dt>
+        <dd>@event.eventType</dd>
+
+        <dt>@Messages("venue"):</dt>
+        <dd>@venue.name</dd>
+
+        <dt>@Messages("startDate"):</dt>
+        <dd>@event.startDate</dd>
+        <dt>@Messages("endDate"):</dt>
+        <dd>@event.endDate</dd>
+    </dl>
+}

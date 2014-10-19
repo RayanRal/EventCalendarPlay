@@ -1,0 +1,17 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET     /                           controllers.Application.index
+GET     /events                     controllers.Events.list(page: Int ?= 1)
+GET     /event/:id                  controllers.Events.details(id: Long)
+GET     /event/name/:name           controllers.Events.detailsByName(name: String)
+
+GET     /venues                     controllers.Venues.list(page: Int ?= 1)
+GET     /venue/:id                  controllers.Venues.details(id: Long)
+GET     /venue/name/:name           controllers.Venues.detailsByName(name: String)
+POST    /venue/:name/:address/:description/:x/:y       controllers.Venues.create(x: Long, y: Long, name: String, address: String, description: String)
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.at(path="/public", file)

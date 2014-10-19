@@ -1,0 +1,17 @@
+@(venue: Venue)
+
+@main(Messages("venue.details", venue.name)) {
+
+    <h2>
+        @Messages("venue.details", venue.name)
+    </h2>
+
+    <dl class="dl-horizontal">
+        <dt>@Messages("name"):</dt>
+        <dd>@venue.name</dd>
+
+        <dt>@Messages("description"):</dt>
+        <dd>@venue.address</dd>
+
+    </dl>
+}
